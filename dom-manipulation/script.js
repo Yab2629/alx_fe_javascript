@@ -4,14 +4,14 @@ const quotes = [
   { text: "Do or do not. There is no try.", category: "Motivation" }
 ];
 
-function showRandomQuote() {
+function displayRandomQuote() {
   if (quotes.length === 0) {
-    document.getElementById("quoteDisplay").innerText = "No quotes available.";
+    document.getElementById("quoteDisplay").innerHTML = "No quotes available.";
     return;
   }
   const randomIndex = Math.floor(Math.random() * quotes.length);
   const quote = quotes[randomIndex];
-  document.getElementById("quoteDisplay").innerText = `"${quote.text}" - [${quote.category}]`;
+  document.getElementById("quoteDisplay").innerHTML = `"${quote.text}" - [${quote.category}]`;
 }
 
 function addQuote() {
@@ -24,10 +24,11 @@ function addQuote() {
   }
 
   quotes.push({ text, category });
+
+  document.getElementById("quoteDisplay").innerHTML = `"${text}" - [${category}]`;
+
   document.getElementById("newQuoteText").value = "";
   document.getElementById("newQuoteCategory").value = "";
-  alert("Quote added successfully!");
 }
 
-document.getElementById("newQuote").addEventListener("click", showRandomQuote);
-document.getElementById("addQuoteBtn").addEventListener("click", addQuote);
+document.getElementById("newQuote").addEventListener("click", displayRandomQuote);
