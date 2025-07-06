@@ -116,17 +116,15 @@ function exportQuotes() {
   URL.revokeObjectURL(url);
 }
 
-let mockServerQuotes = [
-  { text: "Server quote example 1", category: "Server" },
-  { text: "Do or do not. There is no try.", category: "Motivation" }
-];
-
 function fetchQuotesFromServer() {
-  return new Promise(resolve => {
-    setTimeout(() => {
-      resolve(mockServerQuotes);
-    }, 1000);
-  });
+  return fetch("https://jsonplaceholder.typicode.com/posts")
+    .then(response => response.json())
+    .then(data => {
+      return data.slice(0, 5).map(post => ({
+        text: post.title,
+        category: "Server"
+      }));
+    });
 }
 
 function mergeQuotes(serverQuotes) {
