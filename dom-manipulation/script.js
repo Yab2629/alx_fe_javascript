@@ -145,9 +145,9 @@ function mergeQuotes(serverQuotes) {
   populateCategories();
   filterQuotes();
   if (conflicts > 0) {
-    showSyncStatus(`${conflicts} conflict(s) resolved with server data.`);
+    showSyncStatus(`${conflicts} conflict(s) resolved with server data. Quotes synced with server!`);
   } else {
-    showSyncStatus("Data synced successfully with server.");
+    showSyncStatus("Quotes synced with server!");
   }
 }
 
