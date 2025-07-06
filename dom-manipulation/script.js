@@ -24,9 +24,7 @@ function addQuote() {
   }
 
   quotes.push({ text, category });
-
   document.getElementById("quoteDisplay").innerHTML = `"${text}" - [${category}]`;
-
   document.getElementById("newQuoteText").value = "";
   document.getElementById("newQuoteCategory").value = "";
 }
