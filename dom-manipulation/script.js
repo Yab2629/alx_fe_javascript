@@ -4,7 +4,7 @@ const quotes = [
   { text: "Do or do not. There is no try.", category: "Motivation" }
 ];
 
-function displayRandomQuote() {
+function showRandomQuote() {
   if (quotes.length === 0) {
     document.getElementById("quoteDisplay").innerHTML = "No quotes available.";
     return;
@@ -29,4 +29,4 @@ function addQuote() {
   document.getElementById("newQuoteCategory").value = "";
 }
 
-document.getElementById("newQuote").addEventListener("click", displayRandomQuote);
+document.getElementById("newQuote").addEventListener("click", showRandomQuote);
